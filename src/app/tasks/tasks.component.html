@@ -1,0 +1,12 @@
+<p>Wee!</p>
+<p>Tasks count: {{ tasks.length }}</p>
+<ul>
+  <ng-container *ngFor="let task of tasks">
+    <li>
+      <input type="checkbox" [checked]="task.completed" (change)="toggleTaskCompletion(task.id)">
+      <span [class.completed]="task.completed">{{ task.description }}</span>
+    </li>
+  </ng-container>
+</ul>
+  <input #taskDesc type="text">
+<button (click)="addTask(taskDesc.value); taskDesc.value=''">Add Task</button>
